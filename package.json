@@ -1,0 +1,19 @@
+{
+  "name": "markojs-experiment",
+  "version": "1.0.0",
+  "description": "markojs experiment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sandeep",
+  "license": "ISC",
+  "dependencies": {
+    "@lasso/marko-taglib": "^1.0.10",
+    "compression": "^1.7.2",
+    "express": "^4.16.3",
+    "lasso": "^3.1.5",
+    "lasso-marko": "^2.4.2",
+    "marko": "^4.10.0"
+  }
+}
