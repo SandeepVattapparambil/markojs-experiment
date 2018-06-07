@@ -15,7 +15,7 @@ function render(input, out, __component, component, state) {
 
   out.w("<div class=\"navbar-fixed\"><nav class=\"white\"><div class=\"nav-wrapper\"><a href=\"#!\" class=\"brand-logo grey-text\">" +
     marko_escapeXml(input.input.input.name) +
-    "</a><ul class=\"right hide-on-med-and-down\"><li><a href=\"sass.html\" class=\"grey-text\">Sass</a></li><li><a href=\"badges.html\" class=\"grey-text\">Components</a></li></ul></div></nav></div>");
+    "</a></div></nav></div>");
 }
 
 marko_template._ = marko_renderer(render, {
