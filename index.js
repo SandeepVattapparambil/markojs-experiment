@@ -1,4 +1,11 @@
-// Allow Node.js to require and load `.marko` files
+/**
+ * Marko + Express App
+ * Written by: Sandeep Vattapparambil
+ */
+
+/**
+ * Allow Node.js to require and load `.marko` files
+ */
 require('marko/node-require');
 const express = require('express');
 const markoExpress = require('marko/express');
@@ -13,14 +20,26 @@ require('lasso').configure({
     fingerprintsEnabled: false, // Only add fingerprints to URLs in production
 });
 const view = require('./views');
+const port = 3000;
 
+/**
+ * Express app instance
+ */
 const app = express();
-//enable res.marko(template, data)
+
+/**
+ * enable res.marko(template, data)
+ */
 app.use(markoExpress());
-// Enable gzip compression for all HTTP responses
+
+/**
+ * Enable gzip compression for all HTTP responses
+ */
 app.use(compression());
 
-// Allow all of the generated files under "static" to be served up by Express
+/**
+ * Allow all of the generated files under "static" to be served up by Express
+ */
 app.use(require('lasso/middleware').serveStatic());
 
 app.get('/', function (req, res) {
@@ -30,6 +49,9 @@ app.get('/', function (req, res) {
     res.marko(view, data);
 });
 
-app.listen(8080, function(){
-    console.log('App started and listening on port: 8080');
+/**
+ * Start app server
+ */
+app.listen(port, function(){
+    console.log(`App started and listening on port: ${port}`);
 });
