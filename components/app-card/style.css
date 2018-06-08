@@ -4,7 +4,7 @@ div.card-image>img {
 
 div.chip {
     font-weight: 700;
-    width: 175px;
+    width: 150px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

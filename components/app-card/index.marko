@@ -1,14 +1,17 @@
+$ var imageData = state.imageData;
 <div class="col s12 m4 l4">
   <div class="card hoverable">
     <div class="card-image">
-      <img src="${input.image.urls.regular}"/>
+      <img src="${imageData.image.urls.regular}"/>
     </div>
     <div class="card-content">
       <div class="chip">
-        <img src="${input.image.user.profile_image.small}" alt="user_photo"/>
-        ${input.image.user.name}
+        <img src="${imageData.image.user.profile_image.small}" alt="user_photo"/>
+        ${imageData.image.user.name}
       </div>
-      <a class="grey lighten-3 waves-effect waves btn-flat right"><i class="material-icons pink-text">favorite</i></a>
+      <a class="grey lighten-3 waves-effect waves btn-flat right">
+      <i class="material-icons pink-text left">favorite</i> ${imageData.image.likes}
+      </a>
     </div>
   </div>
 </div>
