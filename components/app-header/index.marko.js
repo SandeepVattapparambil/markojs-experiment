@@ -13,8 +13,10 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
+  var brand = state.brand;
+
   out.w("<div class=\"navbar-fixed\"><nav class=\"white\"><div class=\"nav-wrapper\"><a href=\"#!\" class=\"brand-logo grey-text\">" +
-    marko_escapeXml(input.input.input.name) +
+    marko_escapeXml(brand) +
     "</a></div></nav></div>");
 }
 
