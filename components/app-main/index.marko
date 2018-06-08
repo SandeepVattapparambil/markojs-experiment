@@ -13,12 +13,9 @@
       <!-- Page Content goes here -->
       <app-search/>
       <div class="row">
-        <app-card/>
-        <app-card/>
-        <app-card/>
-        <app-card/>
-        <app-card/>
-        <app-card/>
+        <for (image in input.data.imageData)>
+        <app-card image=image/>
+        </for>
       </div>
     </div>
     <!-- JS will be inserted here -->

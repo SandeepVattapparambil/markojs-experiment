@@ -15,7 +15,7 @@ function render(input, out, __component, component, state) {
 
   var brand = state.brand;
 
-  out.w("<div class=\"navbar-fixed\"><nav class=\"white\"><div class=\"nav-wrapper\"><a href=\"#!\" class=\"brand-logo grey-text\">" +
+  out.w("<div class=\"navbar-fixed\"><nav class=\"white\"><div class=\"nav-wrapper\"><a href=\"#!\" class=\"brand-logo grey-text\">&nbsp; " +
     marko_escapeXml(brand) +
     "</a></div></nav></div>");
 }

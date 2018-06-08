@@ -46,16 +46,16 @@ app.use(compression());
 app.use(require('lasso/middleware').serveStatic());
 
 app.get('/', function (req, res) {
-    UnsplashApi.listPhotos(1, 10, 'latest')
-        .then(function (result) {
-            console.log(result);
-        }).catch(function (e) {
-            console.err(e);
-        });
     let data = {
         brand: 'Unsplash Marko'
     };
-    res.marko(view, data);
+    UnsplashApi.listPhotos(1, 9, 'latest')
+        .then(function (result) {
+            data.imageData = result;
+            res.marko(view, data);
+        }).catch(function (e) {
+            console.err(e);
+        });
 });
 
 /**
