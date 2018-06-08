@@ -11,6 +11,7 @@ const express = require('express');
 const markoExpress = require('marko/express');
 const compression = require('compression');
 const lasso = require('lasso');
+const wrapsplash = require('wrapsplash');
 const view = require('./views');
 const port = 3000;
 
@@ -18,6 +19,11 @@ const port = 3000;
  * Lassojs Configuration
  */
 lasso.configure(require('./config/lasso'));
+
+/**
+ * Wrapsplash Configuration
+ */
+const UnsplashApi = new wrapsplash(require('./config/wrapsplash'));
 
 /**
  * Express app instance
@@ -40,6 +46,12 @@ app.use(compression());
 app.use(require('lasso/middleware').serveStatic());
 
 app.get('/', function (req, res) {
+    UnsplashApi.listPhotos(1, 10, 'latest')
+        .then(function (result) {
+            console.log(result);
+        }).catch(function (e) {
+            console.err(e);
+        });
     let data = {
         brand: 'Unsplash Marko'
     };
@@ -49,6 +61,6 @@ app.get('/', function (req, res) {
 /**
  * Start app server
  */
-app.listen(port, function(){
+app.listen(port, function () {
     console.log(`App started and listening on port: ${port}`);
 });

@@ -15,7 +15,8 @@
     "lasso": "^3.1.5",
     "lasso-babel-transform": "^1.0.2",
     "lasso-marko": "^2.4.2",
-    "marko": "^4.10.0"
+    "marko": "^4.10.0",
+    "wrapsplash": "^3.0.1"
   },
   "devDependencies": {
     "babel-preset-env": "^1.7.0"
