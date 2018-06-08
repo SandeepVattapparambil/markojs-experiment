@@ -52,10 +52,11 @@ app.use(require('lasso/middleware').serveStatic());
 
 const URLS = require('./config/api');
 
-app.get('/api', function (req, res) {
-    let start = 1;
-    let end = 9;
-    UnsplashApi.listPhotos(1, 9, 'latest')
+app.get('/api/list/:start/:end', function (req, res) {
+    let start = req.params.start || 1;
+    let end = req.params.end || 9;
+    let orderBy = 'latest';
+    UnsplashApi.listPhotos(start, end, orderBy)
         .then(function (result) {
             res.json(result);
         }).catch(function (e) {
@@ -63,11 +64,22 @@ app.get('/api', function (req, res) {
         });
 });
 
+app.post('/api/like/:id', function (req, res) {
+    let photoId = req.params.id;
+    UnsplashApi.likePhoto(photoId)
+        .then(function (result) {
+            res.json(result);
+        }).catch(function (e) {
+            console.err(e);
+        })
+})
 app.get('/', function (req, res) {
     let data = {
         brand: 'Unsplash Marko'
     };
-    axios.get(URLS.BASE_API_URL)
+    let start = 1;
+    let end = 9;
+    axios.get(URLS.BASE_API_URL + '/list/'+start+'/'+end)
         .then(function (response) {
             data.imageData = response.data;
             res.render('home', data);
