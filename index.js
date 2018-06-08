@@ -12,7 +12,6 @@ const markoExpress = require('marko/express');
 const compression = require('compression');
 const lasso = require('lasso');
 const wrapsplash = require('wrapsplash');
-const view = require('./views');
 const port = 3000;
 
 /**
@@ -29,6 +28,11 @@ const UnsplashApi = new wrapsplash(require('./config/wrapsplash'));
  * Express app instance
  */
 const app = express();
+
+/**
+ * Custom Middleware
+ */
+app.use(require('./middleware'));
 
 /**
  * enable res.marko(template, data)
@@ -52,7 +56,7 @@ app.get('/', function (req, res) {
     UnsplashApi.listPhotos(1, 9, 'latest')
         .then(function (result) {
             data.imageData = result;
-            res.marko(view, data);
+            res.render('home', data);
         }).catch(function (e) {
             console.err(e);
         });
