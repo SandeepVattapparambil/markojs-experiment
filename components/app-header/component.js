@@ -7,10 +7,9 @@ module.exports = class {
     }
     onInput(input) {
         let self = this;
-        if (input == null || input == undefined || input == '') {
+        if (input == null || input.brand == undefined || input.brand == '') {
             throw new Error('Component cannot be initialized without an input');
         }
-        let brand = input.input.input.name;
-        self.state.brand = brand;
+        self.state.brand = input.brand;
     }
 }

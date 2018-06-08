@@ -41,7 +41,7 @@ app.use(require('lasso/middleware').serveStatic());
 
 app.get('/', function (req, res) {
     let data = {
-        name: 'Unsplash Marko'
+        brand: 'Unsplash Marko'
     };
     res.marko(view, data);
 });

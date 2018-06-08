@@ -24,7 +24,7 @@ function render(input, out, __component, component, state) {
     }, out);
 
   app_main_tag({
-      input: data
+      data: data
     }, out, __component, "0");
 }
 
