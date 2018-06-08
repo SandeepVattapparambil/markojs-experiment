@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@lasso/marko-taglib": "^1.0.10",
+    "axios": "^0.18.0",
     "compression": "^1.7.2",
     "express": "^4.16.3",
     "lasso": "^3.1.5",

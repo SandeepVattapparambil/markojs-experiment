@@ -9,7 +9,7 @@ function enhanceRes(req, res, next) {
     /**
      * Helper function to render Template
      */
-    function render(template, data) {
+    function renderTemplate(template, data) {
         let PATH = '../views/';
         data = data || {};
         try {
@@ -19,7 +19,7 @@ function enhanceRes(req, res, next) {
             throw new Error(e);
         }
     }
-    res.render = render;
+    res.render = renderTemplate;
     next();
 }
 module.exports = enhanceRes

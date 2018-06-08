@@ -9,7 +9,7 @@ $ var imageData = state.imageData;
         <img src="${imageData.image.user.profile_image.small}" alt="user_photo"/>
         ${imageData.image.user.name}
       </div>
-      <a class="grey lighten-3 waves-effect waves btn-flat right">
+      <a class="grey lighten-3 waves-effect waves btn-flat right" on-click('like')>
       <i class="material-icons pink-text left">favorite</i> ${imageData.image.likes}
       </a>
     </div>

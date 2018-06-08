@@ -1,13 +1,9 @@
-class AppMain {
-    onCreate() {
-        let self = this;
-    }
+/**
+ * Split component class for browser
+ */
+
+class AppMainClient {
     onMount() {
-        window.addEventListener('scroll', function (ev) {
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                alert('hit');
-            }
-        });
     }
 }
-module.exports = AppMain;
+module.exports = AppMainClient;

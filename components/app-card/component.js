@@ -11,5 +11,6 @@ class AppCardServer {
             imageData: input
         };
     }
+    
 }
 module.exports = AppCardServer;

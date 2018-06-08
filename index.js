@@ -11,6 +11,7 @@ const express = require('express');
 const markoExpress = require('marko/express');
 const compression = require('compression');
 const lasso = require('lasso');
+const axios = require('axios');
 const wrapsplash = require('wrapsplash');
 const port = 3000;
 
@@ -49,16 +50,30 @@ app.use(compression());
  */
 app.use(require('lasso/middleware').serveStatic());
 
+const URLS = require('./config/api');
+
+app.get('/api', function (req, res) {
+    let start = 1;
+    let end = 9;
+    UnsplashApi.listPhotos(1, 9, 'latest')
+        .then(function (result) {
+            res.json(result);
+        }).catch(function (e) {
+            console.err(e);
+        });
+});
+
 app.get('/', function (req, res) {
     let data = {
         brand: 'Unsplash Marko'
     };
-    UnsplashApi.listPhotos(1, 9, 'latest')
-        .then(function (result) {
-            data.imageData = result;
+    axios.get(URLS.BASE_API_URL)
+        .then(function (response) {
+            data.imageData = response.data;
             res.render('home', data);
-        }).catch(function (e) {
-            console.err(e);
+        })
+        .catch(function (error) {
+            console.log(error);
         });
 });
 
