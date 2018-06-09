@@ -73,6 +73,17 @@ app.post('/api/like/:id', function (req, res) {
             console.err(e);
         })
 })
+
+app.post('/api/unlike/:id', function (req, res) {
+    let photoId = req.params.id;
+    UnsplashApi.likePhoto(photoId)
+        .then(function (result) {
+            res.json(result);
+        }).catch(function (e) {
+            console.err(e);
+        })
+})
+
 app.get('/', function (req, res) {
     let data = {
         brand: 'Unsplash Marko'
