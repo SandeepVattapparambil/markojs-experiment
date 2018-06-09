@@ -60,7 +60,7 @@ app.get('/api/list/:start/:end', function (req, res) {
         .then(function (result) {
             res.json(result);
         }).catch(function (e) {
-            console.err(e);
+            console.log(e);
         });
 });
 
@@ -70,7 +70,7 @@ app.post('/api/like/:id', function (req, res) {
         .then(function (result) {
             res.json(result);
         }).catch(function (e) {
-            console.err(e);
+            console.log(e);
         })
 })
 
@@ -80,7 +80,7 @@ app.post('/api/unlike/:id', function (req, res) {
         .then(function (result) {
             res.json(result);
         }).catch(function (e) {
-            console.err(e);
+            console.log(e);
         })
 })
 
@@ -90,7 +90,7 @@ app.get('/', function (req, res) {
     };
     let start = 1;
     let end = 9;
-    axios.get(URLS.BASE_API_URL + '/list/'+start+'/'+end)
+    axios.get(URLS.BASE_API_URL + '/list/' + start + '/' + end)
         .then(function (response) {
             data.imageData = response.data;
             res.render('home', data);
