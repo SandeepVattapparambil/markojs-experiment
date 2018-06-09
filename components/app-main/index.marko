@@ -13,9 +13,22 @@
       <!-- Page Content goes here -->
       <app-search/>
       <div class="row">
-        <for (image in input.data.imageData)>
-        <app-card image=image/>
-        </for>
+        <if(input.data.imageData.length == 0)>
+          <div class="row">
+            <div class="col s12 m5">
+              <div class="card-panel orange lighten-4">
+                <span class="orange-text">
+                 OOps!, I am not receiving any data !
+                </span>
+              </div>
+            </div>
+          </div>
+        </if>
+        <else>
+          <for(image in input.data.imageData)>
+            <app-card image=image/>
+          </for>
+        </else>
       </div>
     </div>
     <!-- JS will be inserted here -->

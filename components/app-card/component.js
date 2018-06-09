@@ -9,14 +9,5 @@ class AppCard {
             imageData: input
         };
     }
-    onMount() {}
-    like() {
-        let self = this;
-        self.state.liked = true;
-    }
-    unlike(){
-        let self = this;
-        self.state.liked = false;
-    }
 }
 module.exports = AppCard;
