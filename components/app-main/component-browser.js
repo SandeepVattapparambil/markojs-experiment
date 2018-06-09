@@ -6,7 +6,7 @@ class AppMain {
         let end = 9;
         axios.get(URLS.BASE_API_URL + '/list/' + start + '/' + end)
             .then(function (response) {
-                console.log(response);
+                let data = response.data;
             })
             .catch(function (error) {
                 console.log(error);
