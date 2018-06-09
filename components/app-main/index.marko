@@ -8,27 +8,12 @@
   </head>
   <body>
     <!-- Top-level UI component: -->
-    <app-header brand=input.data.brand/>
+    <app-header/>
     <div class="container">
       <!-- Page Content goes here -->
       <app-search/>
       <div class="row">
-        <if(input.data.imageData.length == 0)>
-          <div class="row">
-            <div class="col s12 m5">
-              <div class="card-panel orange lighten-4">
-                <span class="orange-text">
-                 OOps!, I am not receiving any data !
-                </span>
-              </div>
-            </div>
-          </div>
-        </if>
-        <else>
-          <for(image in input.data.imageData)>
-            <app-card image=image/>
-          </for>
-        </else>
+        <include(input.body)/>
       </div>
     </div>
     <!-- JS will be inserted here -->

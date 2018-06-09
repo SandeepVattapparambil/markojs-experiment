@@ -85,19 +85,16 @@ app.post('/api/unlike/:id', function (req, res) {
 })
 
 app.get('/', function (req, res) {
-    let data = {
-        brand: 'Unsplash Marko'
-    };
-    let start = 1;
-    let end = 9;
-    axios.get(URLS.BASE_API_URL + '/list/' + start + '/' + end)
-        .then(function (response) {
-            data.imageData = response.data;
-            res.render('home', data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+    res.render('home');
+    // let start = 1;
+    // let end = 9;
+    // axios.get(URLS.BASE_API_URL + '/list/' + start + '/' + end)
+    //     .then(function (response) {
+    //         data.imageData = response.data;
+    //     })
+    //     .catch(function (error) {
+    //         console.log(error);
+    //     });
 });
 
 /**
