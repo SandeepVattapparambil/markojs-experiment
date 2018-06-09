@@ -12,17 +12,11 @@ class AppCard {
     onMount() {}
     like() {
         let self = this;
-        alert('liked');
         self.state.liked = true;
-        self.forceUpdate();
-        self.update();
     }
     unlike(){
         let self = this;
-        alert('unliked');
         self.state.liked = false;
-        self.forceUpdate();
-        self.update();
     }
 }
 module.exports = AppCard;
